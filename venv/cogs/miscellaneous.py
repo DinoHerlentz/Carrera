@@ -14,8 +14,8 @@ from googlesearch import search
 from bs4 import BeautifulSoup
 from main import bot
 
-openai.api_key = "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"
-API_KEY = "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"
+openai.api_key = os.environ['OPENAI']
+API_KEY = os.environ['OPENAI']
 
 
 class Miscellaneous(commands.Cog):
@@ -106,7 +106,7 @@ class Miscellaneous(commands.Cog):
     """
     @commands.command(name = "lyrics", description = "Get the lyrics of a song")
     async def lyrics(self, ctx: commands.Context, *, song):
-        api_key = "vLM9YCCRp1HIG91yOKWwrFv58I4kxKvyJe1lIDlOXHyxabfGPE4rt54zyPmEdAaEUa5VFkL1mzrwxg1Tr8NhdQ"
+        api_key = os.environ['GENIUS']
         url = f"https://api.genius.com/search?q={song}"
         headers = {"Authorization": f"Bearer {api_key}"}
         response = requests.get(url, headers = headers).json()
@@ -137,8 +137,8 @@ class Miscellaneous(commands.Cog):
         ```>>image [query]```
         """
 
-        image_api = "AIzaSyA3JgcdWtGnYAwS0CrllsVeaWOHOzylYMU"
-        cx = "81b63f18867094dc6"
+        image_api = os.environ['IMAGE']
+        cx = os.environ['CX']
         url = f"https://www.googleapis.com/customsearch/v1?key={image_api}&cx={cx}&q={query}&searchType=image&num=1"
         res = requests.get(url).json()
 
