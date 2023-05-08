@@ -181,4 +181,4 @@ async def reload(ctx: commands.Context, extension):
     await ctx.send(f"Successfully reload {extension} extension.")
 
 
-bot.run("OTkzNzAzMzkxNjE0MjA1OTYy.GP0ham.tEo_z90FxY9WPLvw_2CnXHeGTpc_UgFbJwjeqY")
+bot.run(os.environ['TOKEN']
